@@ -8,13 +8,15 @@ class App extends Component {
       <div className="App">
         <Router>
           <div>
+            <nav>
             <ul>
               <li>
                 <Link to="/about">About</Link>
               </li>
             </ul>
-
-            <Route path="/about" component={()=> <span>123</span>} />
+            </nav>
+            <hr></hr>
+            <Route path="/about" component={()=> <h2>about page</h2>} />
 
           </div>
         </Router>
