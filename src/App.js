@@ -13,8 +13,8 @@ class App extends Component {
           <ul>
             <li>
               <Link to="/about">About</Link>
-              </li>
-              <li>
+            </li>
+            <li>
               <Link to="/user">User Page</Link>
             </li>
           </ul>
@@ -23,7 +23,10 @@ class App extends Component {
         <Switch>
           <Route path="/" exact component={() => <h1>Home Page</h1>} />
           <Route path="/about" component={AboutPage} />
-          <Route path="/user" component={UserPage} />
+          <Route path="/user" exact component={UserPage} />
+          <Route path="/user/:userid" component={({ match }) => {
+            return <h1> hello user {match.params.userid}</h1>
+          }} />
           <Route component={NotFoundPage} />
         </Switch>
       </div>
