@@ -1,25 +1,26 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+import { Switch, Route, Link } from 'react-router-dom'
 import './App.css';
-
+import AboutPage from './components/AboutPage'
+import NotFoundPage from './components/NotFoundPage'
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <Router>
-          <div>
-            <nav>
-              <ul>
-                <li>
-                  <Link to="/about">About</Link>
-                </li>
-              </ul>
-            </nav>
-            <hr></hr>
-            <Route path="/about" component={() => <h2>about page</h2>} />
-          </div>
-        </Router>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/about">About</Link>
+            </li>
+          </ul>
+        </nav>
+        <hr></hr>
+        <Switch>
+          <Route path="/" exact component={() => <h1>Home Page</h1>} />
+          <Route path="/about" component={AboutPage} />
+          <Route component={NotFoundPage} />
+        </Switch>
       </div>
     );
   }
